@@ -50,6 +50,7 @@ const ProtectedRoute = ({ children, adminOnly = false }) => {
   }
 
   // Check for admin access if required
+  console.log(user);
   if (adminOnly && user.role !== 'admin') {
     return (
       <div className={`min-h-screen flex items-center justify-center ${

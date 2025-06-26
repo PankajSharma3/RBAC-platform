@@ -12,6 +12,7 @@ export const AuthProvider = ({ children }) => {
     const fetchUser = async () => {
       try {
         setLoading(true);
+        const userData = getCurrentUser();
         if (userData && userData.data) {
           setUser(userData.data);
         } else {
