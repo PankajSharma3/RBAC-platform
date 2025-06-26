@@ -12,8 +12,11 @@ export const AuthProvider = ({ children }) => {
     const fetchUser = async () => {
       try {
         setLoading(true);
-        const userData = await getCurrentUser();
-        setUser(userData.data);
+        if (userData && userData.data) {
+          setUser(userData.data);
+        } else {
+          setUser(null);
+        }
       } catch (err) {
         console.error('Failed to fetch current user:', err);
         setUser(null);
